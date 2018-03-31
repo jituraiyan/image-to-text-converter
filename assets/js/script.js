@@ -153,8 +153,11 @@
     return new Promise( ( resolve, reject ) => {
 
       preview.onload = () => {
-        imageZone( 'OK' )
-        text = OCRAD( preview )
+        try{
+            text = OCRAD( preview )
+        } catch(error) {
+            text = ''
+        }
         resolve( text )
       }
     } )
@@ -162,6 +165,7 @@
 
   // Output text
   let outputText = ( text ) => {
+      imageZone( 'OK' )
       text ? textZone( 'OK' ) : textZone( 'ERROR' )
   }
 
