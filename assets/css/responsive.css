@@ -1,0 +1,87 @@
+/* Medium devices */
+@media only screen and (max-width: 1199px) {
+html{
+  font-size: 60%;
+}
+}
+
+/* Small devices */
+@media only screen and (max-width: 991px) {
+html{
+  font-size: 58%;
+}
+.middle-area{
+  display: none;
+}
+.image-area{
+  width: 47.5%;
+}
+.text-area {
+  width: 47.5%;
+  margin-left: 5%;
+}
+.image-instruction, .image-preview, .text-area-inner {
+	border-width: 0.6rem;
+}
+.contain-image i{
+  font-size: 3.5rem;
+}
+.image-area-inner {
+	height: 35rem;
+}
+.upload-button-container button {
+	padding: 1.3rem;
+	font-size: 2.2rem;
+}
+.text-area-inner {
+	height: 395px;
+}
+.image-text {
+  padding: 2.5rem;
+}
+.image-text-body {
+  margin: 1rem 0 0;
+	padding: 2rem 2.3rem;
+  height: 290px;
+}
+.image-text-top > p {
+	margin: 1.7rem 0 0;
+}
+.copy-container i {
+	font-size: 3rem;
+}
+.image-default, .image-drag, .image-error, .other-text {
+	padding: 3rem;
+}
+}
+
+/* Extra small devices */
+@media only screen and (max-width: 767px) {
+html{
+  font-size: 56%;
+}
+.main {
+	padding: 4rem 0 3rem;
+}
+.image-area, .text-area{
+  width: 100%;
+  margin-left: 0;
+}
+.text-area {
+  padding-top: 30px;
+}
+.big{
+  text-align: center;
+  font-size: 4rem;
+	margin: 0 0 0.5rem;
+}
+.image-instruction, .image-preview, .text-area-inner {
+	border-width: 0.5rem;
+}
+.image-default, .image-drag, .image-error, .other-text, .contain-image {
+	padding: 2rem;
+}
+.image-text-body {
+	padding: 1.8rem;
+}
+}

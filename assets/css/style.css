@@ -1,0 +1,329 @@
+@import 'fonts.css';
+
+/* Common Rules */
+.big{
+  font-size: 4.2rem;
+  font-family: 'GT Walsheim Bold', sans-serif;
+  margin: 0 0 1rem;
+  display: block;
+}
+.hidden{
+  display: none;
+}
+
+/* Generel Rules */
+html{
+  font-size: 62.5%;
+}
+body{
+  font-family: 'GT Walsheim Medium', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+p{
+  line-height: 1.2em;
+}
+i.material-icons{
+  font-size: 5.5rem;
+}
+.main{
+  padding: 4.5rem 0 8.5rem;
+}
+.image-area{
+  width: 45%;
+}
+.image-area-inner{
+  position: relative;
+  height: 40rem;
+}
+.image-instruction, .image-preview, .processing-blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.image-instruction{
+  position: absolute;
+  border: 0.8rem dashed #333;
+}
+.image-instruction.blur{
+  border-color: #65737E;
+}
+.image-instruction p{
+  font-size: 2.2rem;
+}
+.image-instruction.blur p{
+  color: #65737E;
+}
+.image-instruction p small{
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+}
+.image-instruction i{
+  margin-bottom: 0.8rem;
+}
+.image-drag, .image-error{
+  z-index: 2;
+}
+.image-default, .image-drag, .image-error{
+  background: rgba(255,255,255,0.85);
+  padding: 1.8rem;
+}
+.image-default, .image-drag, .image-error, .contain-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+.image-default{
+  z-index: 1;
+}
+.image-default p span{
+  font-family: 'GT Walsheim Bold', sans-serif;
+  cursor: pointer;
+}
+.image-preview{
+  border: 0.8rem solid #65737E;
+  background: #B2B9BF;
+  z-index: 1;
+}
+.contain-image{
+  background: #B2B9BF;
+  padding: 3rem;
+}
+.contain-image i{
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  font-size: 4.5rem;
+  cursor: pointer;
+  color: #fff;
+  background: #333;
+  display: none;
+}
+.contain-image:hover i{
+  display: block;
+}
+.contain-image img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.processing-blur{
+  top: 0.8rem;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  background: rgba(255,255,255,0.5);
+  z-index: 2;
+}
+.processing-blur.behind{
+  opacity: 0;
+  z-index: -1;
+}
+.processing-blur svg {
+  -webkit-animation: rotate 1.4s linear infinite;
+          animation: rotate 1.4s linear infinite;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.processing-blur circle {
+  fill: none;
+  stroke: #65737E;
+  stroke-width: 5;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  stroke-linecap: round;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.upload-button-container{
+  position: relative;
+  margin: 1.8rem 0 0;
+}
+.upload-button-container input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.upload-button-container button{
+  width: 100%;
+  background: #333;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 1.5rem;
+}
+.middle-area{
+  width: 10%;
+  text-align: center;
+  margin-top: 26.5rem;
+}
+.middle-area i{
+  margin-top: -2.2rem;
+}
+.text-area{
+  width: 45%;
+}
+.text-area-inner{
+  border: 0.8rem solid #333;
+  height: 48.3rem;
+  position: relative;
+}
+.image-text{
+  padding: 3.5rem;
+}
+.image-text-top > p{
+  font-size: 1.8rem;
+  margin: 2.2rem 0 0;
+}
+.copy-container{
+  position: relative;
+}
+.copy-container i{
+  font-size: 3.5rem;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.copy-container:hover i{
+  background: #333;
+  color: #fff;
+}
+.copy-container i.green, .copy-container:hover i.green{
+  color: #00AE66;
+}
+.copy-info{
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+.copy-info:after{
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  right: 1.8rem;
+  height: 1rem;
+  width: 1rem;
+  background: #65737E;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.copy-info span{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #65737E;
+  font-family: 'Karla', sans-serif;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+.copy-info span:first-child{
+  width: 14rem;
+}
+.copy-info span:last-child{
+  width: 7.5rem;
+  display: none;
+}
+.image-text-body{
+  background: #D9DCDF;
+  width: 100%;
+  height: 33.5rem;
+  overflow: hidden;
+  margin: 1.5rem 0 0;
+  padding: 2rem 3.5rem;
+}
+.image-text-body p{
+  font-family: 'GT Pressura Mono', sans-serif;
+  font-size: 1.8rem;
+}
+.other-text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 1.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.other-text-default p{
+  color: #B2B9BF;
+}
+.other-text-error p{
+  color: #65737E;
+}
+footer p{
+  text-align: center;
+  margin: 3rem;
+}

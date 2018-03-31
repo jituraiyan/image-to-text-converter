@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'GT Pressura Mono';
+  src: url('../fonts/GT-Pressura-Mono/GT-Pressura-Mono.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/GT-Pressura-Mono/GT-Pressura-Mono.woff') format('woff'),
+       url('../fonts/GT-Pressura-Mono/GT-Pressura-Mono.ttf')  format('truetype'),
+       url('../fonts/GT-Pressura-Mono/GT-Pressura-Mono.svg#GT-Pressura-Mono') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GT Walsheim Bold';
+  src: url('../fonts/GT-Walsheim-Bold/GT-Walsheim-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/GT-Walsheim-Bold/GT-Walsheim-Bold.woff') format('woff'),
+       url('../fonts/GT-Walsheim-Bold/GT-Walsheim-Bold.ttf')  format('truetype'),
+       url('../fonts/GT-Walsheim-Bold/GT-Walsheim-Bold.svg#GT-Pressura-Mono') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GT Walsheim Medium';
+  src: url('../fonts/GT-Walsheim-Medium/GT-Walsheim-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/GT-Walsheim-Medium/GT-Walsheim-Medium.woff') format('woff'),
+       url('../fonts/GT-Walsheim-Medium/GT-Walsheim-Medium.ttf')  format('truetype'),
+       url('../fonts/GT-Walsheim-Medium/GT-Walsheim-Medium.svg#GT-Pressura-Mono') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
