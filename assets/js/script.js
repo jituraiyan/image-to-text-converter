@@ -167,7 +167,7 @@
       text ? textZone( 'OK' ) : textZone( 'ERROR' )
 
       if( detectionError ){
-        let refreshTime = 2000
+        let refreshTime = 5000
         setTimeout( () => { location.reload() }, refreshTime )
       }
   }
