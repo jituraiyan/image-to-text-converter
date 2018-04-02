@@ -2,9 +2,7 @@
 
   'use strict'
 
-  let _ = (selector) => {
-    return document.querySelector( selector )
-  }
+  let _ = (selector) => document.querySelector( selector )
 
   // Global variables
   let preview = _('#js-image-preview'),
@@ -15,7 +13,9 @@
     imagePresent = false,
     previousDragover,
     currentDragover,
+    detectionError = false,
     insideImagezone = false
+
 
   // Options
   let validTypes = [ 'image/jpeg', 'image/png', 'image/gif' ]
@@ -36,6 +36,7 @@
       $('.js-image-preview').removeClass( 'hidden' )
     }else if( 'PROCESSING' == state ) {
       imagePresent = true
+      preview.src = ''
       $('.js-image-preview').removeClass( 'hidden' )
       $('.js-processing-blur').removeClass( 'behind' )
     }else{
@@ -120,11 +121,7 @@
   }
 
   // Check file type
-  let checkType = ( file ) => {
-    return validTypes.find( ( type ) => {
-      return type == file.type
-    } )
-  }
+  let checkType = ( file ) => validTypes.find( ( type ) => type == file.type )
 
   // Load image data from PC folder to browser
   let loadImage = ( target ) => {
@@ -157,6 +154,7 @@
             text = OCRAD( preview )
         } catch(error) {
             text = ''
+            detectionError = true
         }
         resolve( text )
       }
@@ -167,12 +165,17 @@
   let outputText = ( text ) => {
       imageZone( 'OK' )
       text ? textZone( 'OK' ) : textZone( 'ERROR' )
+
+      if( detectionError ){
+        let refreshTime = 2000
+        setTimeout( () => { location.reload() }, refreshTime )
+      }
   }
 
   // Convert an image to text
   let imgToText = ( target ) => {
     loadImage( target )
-    .then( () => { return convertText() } )
+    .then( () => convertText() )
     .then( outputText )
   }
 
@@ -183,7 +186,6 @@
     $('#js-trigger-upload').on( 'click', () => {
       $('#js-upload-button').trigger('click')
     })
-
     $('.js-copy-icon').hover( () => {
       copyButtonTooltip( 'SHOW' )
     }, () => {
