@@ -2,7 +2,7 @@
 
   'use strict'
 
-  let _ = (selector) => document.querySelector( selector )
+  let _ = selector => document.querySelector( selector )
 
   // Global variables
   let preview = _('#js-image-preview'),
@@ -26,7 +26,7 @@
   }
 
   // Dtermines when image zone show what
-  let imageZone = ( state ) => {
+  let imageZone = state => {
 
     $('.js-image-default, .js-image-drag, .js-image-error').addClass( 'hidden' )
     $('.js-processing-blur').addClass( 'behind' )
@@ -64,7 +64,7 @@
   }
 
   // Dtermines when image zone show what
-  let textZone = ( state ) => {
+  let textZone = state => {
     $('.js-image-text').addClass( 'hidden' )
     $('.js-other-text').addClass( 'hidden' )
 
@@ -83,7 +83,7 @@
   }
 
   // Manages tooltip show/hide of copy button
-  let copyButtonTooltip = ( state ) => {
+  let copyButtonTooltip = state => {
 
     let delay = 1000,
         transition = 100
@@ -102,7 +102,7 @@
   }
 
   // Manages tooltip text of copy button and copy text to clipboard
-  let copyButtonText = ( state ) => {
+  let copyButtonText = state => {
 
     if( 'COPY' == state ) {
       $('.js-copy-icon').removeClass( 'green' )
@@ -121,10 +121,10 @@
   }
 
   // Check file type
-  let checkType = ( file ) => validTypes.find( ( type ) => type == file.type )
+  let checkType = file => validTypes.find( type => type == file.type )
 
   // Load image data from PC folder to browser
-  let loadImage = ( target ) => {
+  let loadImage = target => {
     return new Promise( ( resolve, reject ) => {
 
       let file = target.files[0],
@@ -162,18 +162,18 @@
   }
 
   // Output text
-  let outputText = ( text ) => {
+  let outputText = text => {
       imageZone( 'OK' )
       text ? textZone( 'OK' ) : textZone( 'ERROR' )
 
       if( detectionError ){
-        let refreshTime = 5000
+        let refreshTime = 2000
         setTimeout( () => { location.reload() }, refreshTime )
       }
   }
 
   // Convert an image to text
-  let imgToText = ( target ) => {
+  let imgToText = target => {
     loadImage( target )
     .then( () => convertText() )
     .then( outputText )
@@ -202,13 +202,13 @@
       imageZone( 'DEFAULT' )
       textZone( 'DEFAULT' )
     } )
-    $('#js-upload-button').on( 'change', (e) => {
+    $('#js-upload-button').on( 'change', e => {
 
       imgToText( e.target )
       _("#js-upload-button").value = ''
     } )
 
-    $(window).on( 'dragover', (e) => {
+    $(window).on( 'dragover', e => {
       e.preventDefault()
 
       currentDragover = e.target == _('.js-image-zone') || $(e.target).closest('.js-image-zone').length
@@ -221,7 +221,7 @@
       isDragging = true
     } )
 
-    $(window).on( 'dragleave', (e) => {
+    $(window).on( 'dragleave', e => {
       let target = e.target
 
       isDragging = false
@@ -231,10 +231,11 @@
       }, 200 )
     } )
 
-    window.addEventListener( 'drop', (e) => {
+    window.addEventListener( 'drop', e => {
       e.preventDefault()
       let isdropInside = e.target == _('.js-image-zone') || $(e.target).closest('.js-image-zone').length
       isdropInside ? imgToText( e.dataTransfer ) : imageZonePrevious()
+      previousDragover = null
     } )
 
     // Loading animation by MoveIt plugin
